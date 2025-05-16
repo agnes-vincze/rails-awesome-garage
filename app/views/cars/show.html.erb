@@ -1,0 +1,45 @@
+<div class="car-show-page">
+  <div class="car-card">
+    <div class="car-image-container">
+      <div class="car-image">
+        <%= image_tag @car.img_url, alt: "#{@car.brand} #{@car.model}" %>
+      </div>
+
+      <div class="save-link-container">
+        <% if @car.favourites.empty? %>
+          <%= simple_form_for [@car, @favourite] do |f| %>
+            <%= f.submit 'Save in my garage', class: 'save-garage-btn' %>
+          <% end %>
+        <% else %>
+          <p class="already-garage">This car is already in your garage</p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="car-card-content">
+      <div class="car-info">
+        <h2><%= @car.brand %></h2>
+        <h3><%= @car.model %></h3>
+        <p><%= @car.fuel %></p>
+        <p><%= @car.year %></p>
+      </div>
+
+      <div class="review-form">
+        <%= simple_form_for([@car, @review]) do |f| %>
+          <%= f.input :comment, placeholder: "Comment here...", label: false %>
+          <%= f.input :rating, collection: 1..5, label: false %>
+          <%= f.submit "Send", class: "send-btn" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="review-list">
+      <% @car.reviews.each do |review| %>
+        <div class="review">
+          <p><%= review.comment %></p>
+          <p class="stars"><%= '⭐️' * review.rating %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

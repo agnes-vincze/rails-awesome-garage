@@ -1,0 +1,23 @@
+<%= link_to car_path(car), class: "card-car-link" do %>
+  <div class="card-car">
+
+    <div class="card-car-infos">
+      <div class="card-content">
+        <h2><%= car.brand %></h2>
+        <h4><%= car.model %></h4>
+        <p><%= car.created_at.strftime("%A %B %e at %l:%M%P") %></p>
+      </div>
+
+    <div class="car-image">
+      <%= image_tag(car.img_url) if car.img_url.present? %>
+
+      <div id="owner">
+        <p><%= car.owner.nickname %></p>
+      </div>
+    </div>
+      <div id="card-car-comment">
+        <h4><i class="fa-regular fa-comment"></i> Comment</h4>
+      </div>
+    </div>
+  </div>
+<% end %>

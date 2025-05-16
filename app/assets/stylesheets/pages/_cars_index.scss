@@ -1,0 +1,140 @@
+.card-car {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  max-width: 700px;
+  width: 90%;
+  margin: 30px auto;
+  border-radius: 4px;
+}
+
+.car-image {
+  position: relative;
+}
+
+.car-image img {
+  height: 300px;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0 !important;
+}
+
+#owner {
+  position: absolute;
+  bottom: -14px;
+  right: 12px;
+  background-color: $red;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+
+  p {
+    margin: 0;
+    color: white;
+  }
+}
+
+.card-content {
+  padding: 8px;
+}
+
+.card-car h2 {
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0;
+  color: $red;
+}
+
+.card-car h4 {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+  color: $gray;
+}
+
+.card-car p {
+  font-size: 12px;
+  margin: 0;
+  color: gray;
+}
+
+.card-car-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+#card-car-comment {
+  display: flex;
+  align-items: center;
+  margin: 8px 8px 16px 8px;
+
+  h4 {
+    color: gray;
+    margin: 0;
+    padding-left: 8px;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .card-car {
+    max-width: 100%;
+    width: 95%;
+  }
+
+  .car-image img {
+    height: 200px;
+  }
+
+  #owner {
+    bottom: 6px;
+    right: 10px;
+    font-size: 12px;
+    padding: 4px 8px;
+    max-width: 100px;
+  }
+
+  .card-car h2 {
+    font-size: 20px;
+  }
+
+  .card-car h4 {
+    font-size: 16px;
+  }
+
+  .card-car p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .car-image img {
+    height: 150px;
+  }
+
+  #owner {
+    bottom: 6px;
+    right: 10px;
+    font-size: 11px;
+    padding: 3px 6px;
+    max-width: 90px;
+  }
+
+  .card-car h2 {
+    font-size: 18px;
+  }
+
+  .card-car h4 {
+    font-size: 14px;
+  }
+
+  .card-car p {
+    font-size: 10px;
+  }
+}

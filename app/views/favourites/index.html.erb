@@ -1,0 +1,27 @@
+<h3> My Garage </h3>
+
+<% if @favourites.any? %>
+  <div>
+    <% @favourites.each do |favourite| %>
+      <div class="favourite-card">
+
+        <div class="card-garage">
+        <div class="car-image-wrapper">
+          <%= image_tag favourite.car.img_url, alt: "#{favourite.car.brand} #{favourite.car.model}", class: "car-image" %>
+          </div>
+          <div class="card-garage-infos">
+            <h5><%= favourite.car.brand %></h5>
+            <h6><%= favourite.car.model %></h6>
+             <p><%= favourite.car.year %> | <%= favourite.car.fuel %></p>
+          </div>
+        <%= link_to favourite_path(favourite), class: "bin", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>You have no cars in your garage yet.</p>
+<% end %>
